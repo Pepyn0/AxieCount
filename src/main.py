@@ -39,7 +39,7 @@ viewLayout = [
         sg.Text('ROUND:', font='Any 12 bold'),
         sg.Text(key='-ROUND-', text='1', font='Any 11 bold'),
         sg.Text(
-            key='-ROUND-',
+            key='-BMCURSE-',
             text='50',
             visible=False,
             background_color='red',
@@ -152,9 +152,79 @@ window = sg.Window('AxieCount', layout=homeLayout, size=(320, 250))
 
 
 # events
+_countMana = 3
+_countRound = 1
+_countBMCurse = 20
 while True:
     events, values = window.read()
+
     if events == sg.WINDOW_CLOSED:
         break
+    elif events == '-INIT-':
+        _countMana = 3
+        _countRound = 1
+        _countBMCurse = 20
+        window['-VIEW-'].update(_countMana)
+        window['-ROUND-'].update(_countRound)
+        window['-BMCURSE-'].update(_countBMCurse, visible=False)
+
+    elif events == '-NEWTURN-':
+        _countMana += 2
+        _countRound += 1
+        if _countRound > 9:
+            _countBMCurse += 30
+            window['-BMCURSE-'].update(_countBMCurse)
+            window['-BMCURSE-'].update(visible=True)
+        window['-VIEW-'].update(_countMana)
+        window['-ROUND-'].update(_countRound)
+
+    elif events == '-MORE1-':
+        _countMana += 1
+        if _countMana > 10:
+            _countMana = 10
+        window['-VIEW-'].update(_countMana)
+
+    elif events == '-MORE2-':
+        _countMana += 2
+        if _countMana > 10:
+            _countMana = 10
+        window['-VIEW-'].update(_countMana)
+
+    elif events == '-MORE3-':
+        _countMana += 3
+        if _countMana > 10:
+            _countMana = 10
+        window['-VIEW-'].update(_countMana)
+
+    elif events == '-MORE4-':
+        _countMana += 4
+        if _countMana > 10:
+            _countMana = 10
+        window['-VIEW-'].update(_countMana)
+
+    elif events == '-LESS1-':
+        _countMana -= 1
+        if _countMana < 0:
+            _countMana = 0
+        window['-VIEW-'].update(_countMana)
+
+    elif events == '-LESS2-':
+        _countMana -= 2
+        if _countMana < 0:
+            _countMana = 0
+        window['-VIEW-'].update(_countMana)
+
+    elif events == '-LESS3-':
+        _countMana -= 3
+        if _countMana < 0:
+            _countMana = 0
+        window['-VIEW-'].update(_countMana)
+
+    elif events == '-LESS4-':
+        _countMana -= 4
+        if _countMana < 0:
+            _countMana = 0
+        window['-VIEW-'].update(_countMana)
+
 
 window.close()
