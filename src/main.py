@@ -63,8 +63,8 @@ countLayout = [
         sg.Button(
             key='-MORE1-',
             button_text='+1',
-            border_width=3,
-            pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#B5179E')
@@ -72,8 +72,8 @@ countLayout = [
         sg.Button(
             key='-MORE2-',
             button_text='+2',
-            border_width=3,
-            pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#B5179E')
@@ -81,8 +81,8 @@ countLayout = [
         sg.Button(
             key='-MORE3-',
             button_text='+3',
-            border_width=3,
-            pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#B5179E')
@@ -90,8 +90,8 @@ countLayout = [
         sg.Button(
             key='-MORE4-',
             button_text='+4',
-            border_width=3,
-            pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#B5179E')
@@ -101,8 +101,8 @@ countLayout = [
         sg.Button(
             key='-LESS1-',
             button_text='-1',
-            border_width=3,
-            pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#7209B7')
@@ -110,8 +110,8 @@ countLayout = [
         sg.Button(
             key='-LESS2-',
             button_text='-2',
-            border_width=3,
-            pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#7209B7')
@@ -119,7 +119,8 @@ countLayout = [
         sg.Button(
             key='-LESS3-',
             button_text='-3',
-            border_width=3, pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#7209B7')
@@ -127,8 +128,8 @@ countLayout = [
         sg.Button(
             key='-LESS4-',
             button_text='-4',
-            border_width=3,
-            pad=(1, 2),
+            # border_width=3,
+            pad=(2, 2),
             size=(5, 1),
             font='Any 15 bold',
             button_color=('#FFFFFB', '#7209B7')
@@ -171,6 +172,9 @@ while True:
     elif events == '-NEWTURN-':
         _countMana += 2
         _countRound += 1
+        if _countMana > 10:
+            _countMana = 10
+
         if _countRound > 9:
             _countBMCurse += 30
             window['-BMCURSE-'].update(_countBMCurse)
