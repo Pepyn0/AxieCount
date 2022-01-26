@@ -149,7 +149,7 @@ homeLayout = [
 ]
 
 # window
-window = sg.Window('AxieCount', layout=homeLayout, size=(320, 250))
+window = sg.Window('AxieCount', layout=homeLayout, size=(320, 250), keep_on_top=True)
 
 
 # events
